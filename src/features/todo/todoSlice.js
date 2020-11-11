@@ -10,8 +10,8 @@ export const slice = createSlice({
       const { payload } = action;
 
       state.push({
-        description: payload,
         id: todoId,
+        description: payload,
         isComplete: false,
       });
 
@@ -40,13 +40,13 @@ export const slice = createSlice({
 
       const index = state.findIndex((todo) => todo.id === payload);
 
-      if (index === -1) {
+      if (index !== -1) {
         state.splice(index, 1);
       }
     },
   },
 });
 
-export const {create, edit, toggleComplete, remove} = slice.actions
+export const { create, edit, toggleComplete, remove } = slice.actions;
 
-export default slice.reducer
+export default slice.reducer;
